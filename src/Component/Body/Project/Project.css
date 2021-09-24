@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+.projects{
+	padding-left: 120px;
+}
+.projects h2{
+	font-family: 'Ubuntu', sans-serif;
+	position: relative;
+}
+.projects h2::after{
+	content: "";
+	bottom: -4px;
+	left: 0;
+	width: 2%;
+	height: 3px;
+	position: absolute;
+	background-color:orange;
+}
+.projects .row .col-sm-12 .row .card .DeleteIcon{
+	padding: 5px;
+	top:15px;
+	left: 85%;
+	font-size: 30px;
+	z-index: 1;
+	position: absolute;
+	background-color: white;
+	border-radius: 50px;
+}
+.projects .row .col-sm-12 .row .card img{
+	filter: blur(0px);
+	transition: 0.3s ease-in-out;
+}
+.projects .row .col-sm-12 .row .card img:hover ,.projects .row .col-sm-12 .row .card .DeleteIcon{
+	filter: blur(0.5px);
+	transform: scale(1.03);
+	box-shadow: -1px 2px 14px -3px rgba(87,87,87,0.75);
+    -webkit-box-shadow: -1px 2px 14px -3px rgba(87,87,87,0.75);
+    -moz-box-shadow: -1px 2px 14px -3px rgba(87,87,87,0.75);
+	cursor: pointer;
+}
+
+/* selectedProject*/
+.Breadcrumbs{
+	margin-left: 30px;
+	padding-left: 30px;
+	padding-right: 80px;
+	border-radius: 5px;
+	width: fit-content;
+	cursor: pointer;
+	background-color: red;
+}
+.SelectedSite{
+	padding-left: 30px;
+}
+.SelectedSite .row{
+	font-family: 'Ubuntu', sans-serif;
+}
+.SelectedSite .row .col-10 .row .col-lg-5{
+
+}
+.SelectedSite .row .col-10 .row .col-lg-5 .title{
+	font-weight: bolder;
+	color: #464646;
+}
+.SelectedSite .row .col-10 .row .col-lg-5 .description{
+	margin-top: 0px;
+}
+.SelectedSite .row .col-10 .row .col-lg-5 .price{
+	margin-top: -10px;
+}
+.SelectedSite .row .col-10 .row .col-lg-5 .commentBox{
+	margin-top: -10px;
+	padding-top: 8px;
+	padding-left: 8px;
+	height: 40px;
+	width: 300px;
+	border: 1px solid white;
+	border-radius: 10px;
+	outline-color: white;
+}
+.SelectedSite .row .col-10 .row .col-lg-5 .commentBox .MuiAccordionSummary-root{
+	padding: 0;
+}
+.SelectedSite .row .col-10 .row .col-lg-5 .likeIcon{
+	font-size: 25px;
+	cursor: pointer;
+}
+.SelectedSite .row .col-10 .row .col-lg-5 .loveIcon{
+	font-size: 25px;
+	cursor: pointer;
+}
+.SelectedSite .row .col-10 .row .col-lg-5 .shareIcon{
+	font-size: 25px;
+	cursor: pointer;
+}
+.SelectedSite .row .col-10 .row .col-lg-5 .likeIcon:hover{
+	color: red;
+}
+.SelectedSite .row .col-10 .row .col-lg-5 .loveIcon:hover{
+	color: red;
+}
+.SelectedSite .row .col-10 .row .col-lg-5 .shareIcon:hover{
+	color: red;
+}
+.SelectedSite .row .col-10 .row .col-lg-5 h5{
+	color: #464646;
+}
+@media(max-width: 1100px){
+	.projects{
+		padding-left: 30px;
+	}
+	.SelectedSite{
+		padding-left: 0px;
+	}
+	.Breadcrumbs{
+		padding-left: 15px;
+	    padding-right: 15px;
+	    margin-left: 0px;
+	}
+	.SelectedSite .row .col-10 .row .col-lg-5 .title{
+		margin-top: 20px;
+	}
+}

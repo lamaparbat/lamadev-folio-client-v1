@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+.container-fluid{
+	font-family: 'Ubuntu', sans-serif;
+}
+.container-fluid .row .col-10 .row{
+	padding-left: 33px;
+}
+.formContainer{
+	display: grid;
+	place-items:center;
+}
+.formContainer form input,.formContainer form textarea{
+	padding:6px;
+	padding-left: 10px;
+	min-width: 300px;
+}
+
+@media(max-width: 1100px){
+	.container-fluid .row .col-10 .row{
+		padding-left: 0px;
+	}
+}

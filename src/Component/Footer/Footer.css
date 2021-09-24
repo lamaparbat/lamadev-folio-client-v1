@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;1,300&display=swap');
+
+.brandName{
+	color: black;
+    font-family: 'Rampart One', cursive;
+}
+.brandNameTitle{
+	line-height:25px;
+	font-family: 'Titillium Web', sans-serif;
+	text-align: left;
+}
+.subscribe h6{
+	letter-spacing: 1px;
+	font-family: 'Titillium Web', sans-serif;
+}
+.subscribe .email{
+	width: 400px;
+	padding: 5px;
+	color: orange;
+	font-family: 'Titillium Web', sans-serif;
+	border:2px solid orange;
+}
+.subscribe .subscribeBtn{
+	width: 200px;
+	font-size: 14px;
+	color: white;
+	font-family: 'Titillium Web', sans-serif;
+	border:2px solid orange;
+	background-color: #fd7e14;
+}
+.copyright p{
+	font-family: 'Titillium Web', sans-serif;
+}
+.copyright a{
+	margin-top:5px;
+	margin-left:30px;
+	font-size: 16px;
+	text-decoration:none;
+	font-family: 'Titillium Web', sans-serif;
+}
+@media(max-width: 1100px){
+	.copyright{
+		flex-direction: column;
+		text-align: center;
+	}
+	.copyright a{
+		margin-left: 0;
+	}
+}

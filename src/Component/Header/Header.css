@@ -1,0 +1,54 @@
+/* ul li fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+body{
+	margin: 0;
+	padding: 0;
+}
+.navbar-light .navbar-toggler-icon{
+background-image: url(https://image.flaticon.com/icons/png/512/4543/4543046.png)!important;
+}
+.navbar .collapse ul li{
+	letter-spacing: 1px;
+	margin-left: 5px;
+	font-family: sans-serif;
+	font-size: 12px;
+	font-weight: lighter;
+	transition: 1s ease-in-out;
+}
+.navbar .collapse ul li:hover{
+	cursor: pointer;
+}
+.container-fluid{
+	overflow: hidden;
+}
+.contacts a{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 12px;
+	padding-right: 12px;
+	text-decoration: none;
+	font-size: 14px;
+	color: white;
+	font-family: sans-serif;
+	margin-right: 10px;
+	background-color: #333;
+}
+.contacts a:hover{
+	color: orange;
+}
+.navbar .brandName{
+  font-family: 'Rampart One', cursive;
+}
+#sidebar{
+	font-family: 'Quicksand', sans-serif;
+}
+.brandName{
+	font-family: 'Rampart One', cursive;
+}
+
+@media(max-width: 1100px){
+	.navbar-nav{
+		display: none;
+	}
+}
