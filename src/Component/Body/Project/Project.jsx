@@ -85,7 +85,7 @@ const Project = () => {
 		  	 <div className="container projects my-5">
 			    <Breadcrumbs arial-label="breadcumb" className="bg-light py-3 text-" style={{paddingLeft:"30px",paddingRight:"80px",width:"fit-content",marginLeft:"10px",borderRadius:"5px",cursor:"pointer"}}>
 			  	   <BreadLink color="inherit"><Link onClick={redirectHome} className="text-decoration-none">Home</Link></BreadLink>
-			  	   <BreadLink className="text-danger" color="textPrimary">Services</BreadLink>
+			  	   <BreadLink className="text-danger" color="textPrimary">Projects</BreadLink>
 			  	</Breadcrumbs><br />
 			  	<div className="row">
 			  	 <div className="col-sm-12 py-3 mx-auto bg-">
