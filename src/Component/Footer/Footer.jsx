@@ -29,7 +29,7 @@ const Footer = () => {
 		if(email){
 			if(email.search("@") > 0 && email.search("gmail") > 0 && email.search(".") >= 0 && email.search("com") > 0){
 				//sending data to server 
-				axios.post("http://localhost:5000/subscribe", {
+				axios.post("https://parbat-backend.herokuapp.com/subscribe", {
 					email: email
 				});
 				subscribeSuccessToast()

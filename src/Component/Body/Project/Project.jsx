@@ -39,7 +39,7 @@ const Project = () => {
 	//delete the template
 	const deleteTemplate = (e,src) => {
 		e.stopPropagation()
-		axios.post('http://localhost:5000/deleteProject', {
+		axios.post('https://parbat-backend.herokuapp.com/deleteProject', {
 			src: src
 		}).then((res, err) => {
 			 deleteToast()
@@ -50,7 +50,7 @@ const Project = () => {
 	const [fetchedData, setFetchedData] = useState([])
 	
 	useEffect(() => {
-		axios.get("http://localhost:5000/allProjects").then(data => {
+		axios.get("https://parbat-backend.herokuapp.com/allProjects").then(data => {
 			setFetchedData(data.data)
 		})
 		if (fetchedData) {
@@ -73,7 +73,7 @@ const Project = () => {
 	
 	channel.bind('delete', function (message) {
 		console.log(message)
-		axios.get("http://localhost:5000/allProjects").then(data => {
+		axios.get("https://parbat-backend.herokuapp.com/allProjects").then(data => {
 			setFetchedData(data.data)
 		})
 	})

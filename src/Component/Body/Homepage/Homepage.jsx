@@ -338,7 +338,7 @@ const Homepage = () => {
 
 	var channel = pusher.subscribe('visitors');
 	channel.bind('inserted', function (data) {
-		axios.get("http://localhost:5000/subscriberCount").then(count => {
+		axios.get("https://parbat-backend.herokuapp.com/subscriberCount").then(count => {
 			setSubscriberCount(count.data.count)
 		})
 	});
@@ -354,7 +354,7 @@ const Homepage = () => {
 		if (email.current.value) {
 			if (email.current.value.search("@") > 0 && email.current.value.search("gmail") > 0 && email.current.value.search(".") >= 0 && email.current.value.search("com") > 0) {
 				//sending data to server 
-				axios.post("http://localhost:5000/subscribe", {
+				axios.post("https://parbat-backend.herokuapp.com/subscribe", {
 					email: email.current.value
 				});
 				subscribeSuccessToast()
