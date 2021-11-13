@@ -17,7 +17,6 @@ import store from '../../../Store.js'
 import LoadingSpinner from '../Loader/Loader'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from 'react-responsive-carousel'
-import {firebase} from '../../../firebase'
 import './Project.css'
 
 
@@ -65,7 +64,7 @@ const SelectedSite = () => {
 			                 {
 			                 	data.img.slice(0).reverse().map((src,index) => (
 			                 		<div>
-			                 			<img key={index} src={src} />
+			                 			<img key={index} src={__dirname+"uploads/"+src} />
 			                 		</div>
 			                 	))
 			                 }

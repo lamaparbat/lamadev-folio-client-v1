@@ -1,29 +1,27 @@
 import './Admin.css'
-import {useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import { useState } from 'react'
+import { Link } from 'react-router-dom';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import {firebase} from '../../../firebase'
-import {ToastContainer, toast} from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 import Checkbox from '@material-ui/core/Checkbox'
 import 'react-toastify/dist/ReactToastify.css'
+import axios from 'axios';
 
 const Login = () => {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 	const [userData, setUserData] = useState({
-		email:"",
-		password:""
+		email: "",
+		password: ""
 	})
 	const [save, setCheckValue] = useState(true)
 
-	// url history
-	const history = useHistory()
 
 	// login toast
-	const successToast =  () => toast.success("Login successfull !!")
-	const errorToast = () =>  toast.error("Email & Password Not matched !!")
-	const emptyToast = () =>  toast.error("Empty Field !!")
-	const invalidToast = () =>  toast.error("Invalid Email !!")
+	const successToast = () => toast.success("Login successfull !!")
+	const errorToast = () => toast.error("Email & Password Not matched !!")
+	const emptyToast = () => toast.error("Empty Field !!")
+	const invalidToast = () => toast.error("Invalid Email !!")
 
 	//email type event
 	const emailKeypress = (e) => {
@@ -36,62 +34,70 @@ const Login = () => {
 	//save password
 	const savePassword = (e) => {
 		let data = {
-			email:email,
-			password:password
+			email: email,
+			password: password
 		}
 		setUserData(data)
-		if(save == false){
+		if (save == false) {
 			setCheckValue(true)
-		}else{
+		} else {
 			setCheckValue(false)
 		}
 	}
 
 	const login = () => {
-		if(email && password){
-			if(email.search("@") > 0 && email.search("gmail") > 0 && email.search(".") >= 0 && email.search("com") > 0){
-				firebase.auth().signInWithEmailAndPassword(email, password)
-				.then(() => {
-					successToast()
-					!(save) ? window.localStorage.setItem("ParbatWeb",JSON.stringify(userData)) : window.localStorage.setItem("ParbatWeb",JSON.stringify(userData))
-					setTimeout(() => {
-						history.push("Admin")
-					},1000)
+		if (email && password) {
+			if (email.search("@") > 0 && email.search("gmail") > 0 && email.search(".") >= 0 && email.search("com") > 0) {
+				axios.post("http://localhost:5000/adminLogin", {
+					email: email,
+					password: password
+				}).then((res, err) => {
+					if (res) {
+						if (res.status === 200) {
+							window.localStorage.setItem("ParbatWeb", JSON.stringify({
+								email: email,
+								password:password
+							}))
+							document.querySelector("#redirectBtn").click()
+						}
+					} else {
+						console.log("login data sending error!!")
+					}
 				})
-				.catch((error) => {
-					errorToast()
-			    })
-			}else{
+			} else {
 				invalidToast()
 			}
-		}else{
+		} else {
 			emptyToast()
 		}
 	}
-	return(
-		  <>
-		   <div className="container-fluid my-5">
-		   	 <div className="row">
-		   	   <div className="col-10 mx-auto">
-		   	     <div className="row">
-		   	       <div className="col-lg-4"></div>
-		   	       <div className="col-lg-4 bg-light py-5 px-5">
-		   	         <h3 className="mb-4">Login Form</h3>
-		   	         <input type="email" className="email form-control" placeholder="Enter email" value={email} onChange={emailKeypress}/><br/>
-		   	         <input type="password" className="price form-control" placeholder="Enter password" value={password} onChange={passwordKeypress}/>
-		   	         <Checkbox checked={save} value={save} onClick={savePassword} className="mt-2" style={{marginLeft:"-10px",marginBottom:"10px"}} /><span>Save Password ?</span><br />
-		   	         <button className="btn btn-info text-white mb-2" onClick={login}>Login</button><br />
-		   	         <a href="#">Forgotten password ?</a><hr />
-		   	         <center><button className="btn btn-info text-white mb-2 border-0" style={{backgroundColor:"#3b5998"}}><FacebookIcon style={{marginTop:"-2px"}}/> Login with Facebook</button></center>
-		   	         <br />
-		   	       </div>
-		   	       <div className="col-lg-4"></div>
-		   	     </div>
-		   	   </div>
-		   	 </div>
-		   </div>
-		  </>
-		)
+
+
+	return (
+		<>
+			<div className="container-fluid my-5">
+				<div className="row">
+					<div className="col-10 mx-auto">
+						<div className="row">
+							<div className="col-lg-4"></div>
+							<div className="col-lg-4 bg-light py-5 px-5">
+								<h3 className="mb-4">Login Form</h3>
+								<input type="email" className="email form-control" placeholder="Enter email" value={email} onChange={emailKeypress} /><br />
+								<input type="password" className="price form-control" placeholder="Enter password" value={password} onChange={passwordKeypress} />
+								<Checkbox checked={save} value={save} onClick={savePassword} className="mt-2" style={{ marginLeft: "-10px", marginBottom: "10px" }} /><span>Save Password ?</span><br />
+								<button className="btn btn-info text-white mb-2" onClick={login}>Login</button><br />
+								<Link to="/Admin" id="redirectBtn"></Link>
+								<a href="#">Forgotten password ?</a><hr />
+								<center><button className="btn btn-info text-white mb-2 border-0" style={{ backgroundColor: "#3b5998" }}><FacebookIcon style={{ marginTop: "-2px" }} /> Login with Facebook</button></center>
+								<br />
+							</div>
+							<div className="col-lg-4"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</>
+	)
 }
 
 export default Login

@@ -7,7 +7,8 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import {useState} from 'react'
 import {ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import {firebase} from '../../firebase.js'
+import { firebase } from '../../firebase.js'
+import axios from 'axios';
 import 'animate.css'
 import './Footer.css'
 const Footer = () => {
@@ -20,27 +21,16 @@ const Footer = () => {
 	//subcribe btn clicked
 	const subscribeSuccessToast = () => toast.success("Thank you !!")
 	const errorSubscribeToast = () => toast.error("Email is invalid !!")
-	const alreadySubscriberExist = () => toast.error("Email already exist. Thank you !!")
 	const emptyToast = () => toast.error("Field is empty !!")
 	const subscribeBtnClicked = () => {
 		if(email){
 			if(email.search("@") > 0 && email.search("gmail") > 0 && email.search(".") >= 0 && email.search("com") > 0){
-				//check if email already exist
-				db.collection("subscriber").where("email", "==", email)
-				.get()
-				.then(snapshot => {
-					if(snapshot.docs.length > 0){
-						alreadySubscriberExist()
-					}else{
-						db.collection("subscriber").add({
-							email:email
-						}).then(() => {
-							subscribeSuccessToast()
-							setEmail("")
-						})
-					}
-				})
-
+				//sending data to server 
+				axios.post("http://localhost:5000/subscribe", {
+					email: email
+				});
+				subscribeSuccessToast()
+				setEmail("")
 			}else{
 				errorSubscribeToast()
 			}

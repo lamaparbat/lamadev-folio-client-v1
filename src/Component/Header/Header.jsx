@@ -1,7 +1,6 @@
 import {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import { Link as NavLink } from 'react-scroll'
-import {Link} from 'react-router-dom'
 import LoaderSpinner from '../Body/Loader/Loader'
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -100,16 +99,16 @@ const Header = () => {
 				          <a  className="nav-link" onClick={redirectHome}>HOME</a>
 				        </li>
 				        <li className="nav-item">
-				          <NavLink className="nav-link" to="aboutUs">ABOUT</NavLink>
+				          <NavLink className="nav-link" to="/aboutUs">ABOUT</NavLink>
 				        </li>
 				        <li className="nav-item">
-				          <NavLink className="nav-link" to="services">SERVICES</NavLink>
+				          <NavLink className="nav-link" to="/services">SERVICES</NavLink>
 				        </li>
 				        <li className="nav-item">
 				          <a  className="nav-link" onClick={seeProject}>MY PROJECTS</a>
 				        </li>
 				        <li className="nav-item">
-				          <NavLink className="nav-link" to="footer">CONTACT</NavLink>
+				          <NavLink className="nav-link" to="/footer">CONTACT</NavLink>
 				        </li>
 				      </ul>
 				    </div>

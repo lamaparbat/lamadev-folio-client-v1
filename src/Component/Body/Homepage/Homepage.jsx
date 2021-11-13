@@ -300,9 +300,7 @@ const SubscriberCount = () => {
 		let time = new Date().toLocaleTimeString()
 		setTime(time)
 	},1000)
-	firebase.firestore().collection("subscriber").get().then(function(querySnapshot) {      
-	     setCount(querySnapshot.size)
-	});
+
 	
 	return(
 		   <>
@@ -334,22 +332,6 @@ const Homepage = () => {
 		if(email){
 			if(uemail.search("@") > 0 && uemail.search("gmail") > 0 && uemail.search(".") >= 0 && uemail.search("com") > 0){
 				//check if email already exist
-				db.collection("subscriber").where("email", "==", uemail)
-				.get()
-				.then(snapshot => {
-					if(snapshot.docs.length > 0){
-						alreadySubscriberExist()
-					}else{
-						db.collection("subscriber").add({
-							email:uemail
-						}).then(() => {
-							subscribeSuccessToast()
-							setModalShow(false)
-							//set the subscribed flag on the localStorage
-							// window.localStorage.setItem("subscribed","true")
-						})
-					}
-				})
 
 			}else{
 				errorSubscribeToast()
