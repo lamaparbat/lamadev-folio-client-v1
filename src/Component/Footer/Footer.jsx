@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import {$} from 'react-jquery-plugin'
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -11,13 +12,15 @@ import { firebase } from '../../firebase.js'
 import axios from 'axios';
 import 'animate.css'
 import './Footer.css'
+
 const Footer = () => {
 	const db = firebase.firestore()
 	const [email, setEmail] = useState("")
+	
 	const getEmail = (e) => {
 		setEmail(e.target.value)
 	}
-
+	
 	//subcribe btn clicked
 	const subscribeSuccessToast = () => toast.success("Thank you !!")
 	const errorSubscribeToast = () => toast.error("Email is invalid !!")

@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import VisibilityIcon from '@material-ui/icons/Visibility'
-import { $ } from 'react-jquery-plugin'
-import { SelectedSiteData } from '../../../Actions/index.js'
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from 'react-redux'
 import { ToastContainer, toast } from 'react-toastify'
@@ -12,6 +9,7 @@ import BreadLink from '@material-ui/core/Link';
 import LoaderSpinner from '../Loader/Loader'
 import './Project.css'
 import axios from 'axios'
+import Pusher from 'pusher-js';
 
 const Project = () => {
 	const deleteToast = () => toast.warn("Deleted Successfully !!")
@@ -39,7 +37,8 @@ const Project = () => {
 	}
 
 	//delete the template
-	const deleteTemplate = (src) => {
+	const deleteTemplate = (e,src) => {
+		e.stopPropagation()
 		axios.post('http://localhost:5000/deleteProject', {
 			src: src
 		}).then((res, err) => {
@@ -61,12 +60,30 @@ const Project = () => {
 		}
 	}, [])
 	
+	
+	//db changes tracker --> pusher
+	var pusher = new Pusher('c8b41493bbaaefc790c7', {
+		cluster: 'ap2'
+	});
+
+	var channel = pusher.subscribe('projects');
+	channel.bind('inserted', function (data) {
+		setFetchedData([...fetchedData, data])
+	});
+	
+	channel.bind('delete', function (message) {
+		console.log(message)
+		axios.get("http://localhost:5000/allProjects").then(data => {
+			setFetchedData(data.data)
+		})
+	})
+	
+	
 	const Card = (props) => {
-		console.log(__dirname + "uploads/file-" + props.img)
 		return (
 			<>
 				<div className="card me-4 mb-4" style={{ width: "350px", border: "1px solid white" }} onClick={() => sendSelectedData(props)}>
-					<DeleteIcon className={"DeleteIcon " + (history.location.pathname != "/admin" ? "d-none" : "d-block")} onClick={() => deleteTemplate(props.img)} />
+					<DeleteIcon className={"DeleteIcon " + (history.location.pathname != "/admin" ? "d-none" : "d-block")} onClick={(e) => deleteTemplate(e,props.img)} />
 					<img src={__dirname+"uploads/"+props.img[0]} height="100%" width="100%" loading="lazy" />
 				</div>
 			</>
@@ -83,12 +100,15 @@ const Project = () => {
 				<div className="row">
 					<div className="col-sm-12 py-3 mx-auto bg-">
 						{
+							fetchedData.length === 0 ? <center><h5 className="text-danger my-5 "> Projects not found !!</h5></center> : null
+						}
+						{
 							isLoading ? <LoaderSpinner /> :
 								<div className="row mx-auto">
 									{
 										fetchedData.map((data, index) => {
 											return (
-												<Card title={data.title} description={data.description} price={data.price} img={data.file} id={index} />
+												<Card title={data.title} description={data.description} price={data.price} github={data.github} img={data.file} id={index} />
 											)
 										})
 									}
