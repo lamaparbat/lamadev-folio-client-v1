@@ -326,7 +326,7 @@ const Homepage = () => {
 
 	// subscribe count
 	useEffect(() => {
-		axios.get("http://localhost:5000/subscriberCount").then(count => {
+		axios.get("https://parbat-5db79.web.app//subscriberCount").then(count => {
 			setSubscriberCount(count.data.count)
 		})
 	}, [])
