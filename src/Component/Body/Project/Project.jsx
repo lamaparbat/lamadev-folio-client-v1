@@ -100,7 +100,7 @@ const Project = () => {
 				<div className="row">
 					<div className="col-sm-12 py-3 mx-auto bg-">
 						{
-							fetchedData.length === 0 ? <center><h5 className="text-danger my-5 "> Projects not found !!</h5></center> : null
+							fetchedData.length === 0 ? <center><h5 className="text-danger my-5 "> Loading Projects................</h5></center> : null
 						}
 						{
 							isLoading ? <LoaderSpinner /> :
