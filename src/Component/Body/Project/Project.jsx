@@ -1,48 +1,51 @@
-import { useState, useEffect } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { useDispatch } from 'react-redux'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import Breadcrumbs from '@material-ui/core/Breadcrumbs'
+import { useDispatch } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import BreadLink from '@material-ui/core/Link';
-import LoaderSpinner from '../Loader/Loader'
-import './Project.css'
-import axios from 'axios'
+import LoaderSpinner from '../Loader/Loader';
+import './Project.css';
+import axios from 'axios';
 import Pusher from 'pusher-js';
 
 const Project = () => {
-	const deleteToast = () => toast.warn("Deleted Successfully !!")
+	const deleteToast = () => toast.warn("Deleted Successfully !!");
 
 	//loader 
-	const [isLoading, setLoading] = useState(true)
+	const [isLoading, setLoading] = useState(true);
 
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
-	let history = useHistory()
-	let path = 'SelectedSite'
+	let history = useHistory();
+	
+	let path = 'SelectedSite';
+	
 	const sendSelectedData = (data) => {
 		console.log(data)
-		window.localStorage.setItem("data", JSON.stringify(data))
+		window.localStorage.setItem("data", JSON.stringify(data));
 		setTimeout(() => {
-			history.push(path)
+			history.push(path);
 		}, 2000)
 	}
 
 	//redirec to homepage
 	const redirectHome = () => {
 		setTimeout(() => {
-			history.push("/")
+			history.push("/");
 		}, 2000)
 	}
 
 	//delete the template
 	const deleteTemplate = (e,src) => {
 		e.stopPropagation()
-		axios.post('https://parbat-backend.herokuapp.com/deleteProject', {
+		//https://parbat-backend.herokuapp.com
+		axios.post('http://localhost:5000/deleteProject', {
 			src: src
 		}).then((res, err) => {
-			 deleteToast()
+			deleteToast();
 		})
 	}
 
@@ -50,13 +53,13 @@ const Project = () => {
 	const [fetchedData, setFetchedData] = useState([])
 	
 	useEffect(() => {
-		axios.get("https://parbat-backend.herokuapp.com/allProjects").then(data => {
-			setFetchedData(data.data)
+		axios.get("http://localhost:5000/allProjects").then(data => {
+			setFetchedData(data.data);
 		})
 		if (fetchedData) {
-			setLoading(false)
+			setLoading(false);
 		} else {
-			setLoading(true)
+			setLoading(true);
 		}
 	}, [])
 	
@@ -68,13 +71,13 @@ const Project = () => {
 
 	var channel = pusher.subscribe('projects');
 	channel.bind('inserted', function (data) {
-		setFetchedData([...fetchedData, data])
+		setFetchedData([...fetchedData, data]);
 	});
 	
 	channel.bind('delete', function (message) {
 		console.log(message)
 		axios.get("https://parbat-backend.herokuapp.com/allProjects").then(data => {
-			setFetchedData(data.data)
+			setFetchedData(data.data);
 		})
 	})
 	
@@ -100,7 +103,7 @@ const Project = () => {
 				<div className="row">
 					<div className="col-sm-12 py-3 mx-auto bg-">
 						{
-							fetchedData.length === 0 ? <center><h5 className="text-danger my-5 "> Loading Projects................</h5></center> : null
+							fetchedData.length === 0 ? <center><h5 className="text-secondary my-5 "> Loading........</h5></center> : null
 						}
 						{
 							isLoading ? <LoaderSpinner /> :
@@ -108,7 +111,7 @@ const Project = () => {
 									{
 										fetchedData.map((data, index) => {
 											return (
-												<Card title={data.title} description={data.description} price={data.price} github={data.github} img={data.file} id={index} />
+												<Card title={data.title} description={data.description} price={data.price} github={data.github} img={data.file} id={index} key={index} />
 											)
 										})
 									}

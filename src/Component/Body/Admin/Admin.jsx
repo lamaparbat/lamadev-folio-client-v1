@@ -1,7 +1,7 @@
-import React from 'react'
-import { useState, useEffect, useRef } from 'react'
-import { useHistory } from 'react-router-dom'
-import 'react-toastify/dist/ReactToastify.css'
+import React from 'react';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 import Project from '../Project/Project';
 import axios from 'axios';
 import './Admin.css';
@@ -21,7 +21,7 @@ const Admin = () => {
 	const history = useHistory()
 	//get the email from firebase authentication
 	try {
-		const data = JSON.parse(localStorage.getItem("ParbatWeb"))
+		const data = JSON.parse(localStorage.getItem("ParbatWeb"));
 		if (data) {
 		} else {
 			history.push("/")
@@ -59,7 +59,7 @@ const Admin = () => {
 		e.preventDefault()
 		let form = document.getElementById('form');
 		let formData = new FormData(form);
-		axios.post('https://parbat-backend.herokuapp.com/uploadProject', formData);
+		axios.post('http://localhost:5000/uploadProject', formData);
 		setData({
 			title: "",
 			description: "",
@@ -99,5 +99,6 @@ const Admin = () => {
 		</>
 	)
 }
-export default Admin
+export default Admin;
+
 
