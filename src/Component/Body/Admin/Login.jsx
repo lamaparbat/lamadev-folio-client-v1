@@ -48,7 +48,7 @@ const Login = () => {
 	const login = () => {
 		if (email && password) {
 			if (email.search("@") > 0 && email.search("gmail") > 0 && email.search(".") >= 0 && email.search("com") > 0) {
-				axios.post("http://localhost:5000/adminLogin", {
+				axios.post("https://parbat-backend.herokuapp.com/adminLogin", {
 					email: email,
 					password: password
 				}).then((res, err) => {

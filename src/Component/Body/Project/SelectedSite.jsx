@@ -73,7 +73,7 @@ const SelectedSite = () => {
 										<div className="col-lg-5 productDetails">
 											<h2 className="title">{data.title}</h2>
 											<p className="description">{data.description}</p>
-											<p className="price py-2 h5">{data.price === 0 ? null : <>$USD {data.price} &nbsp; {/*<strike className="text-danger">$USD {data.price}</strike>*/}</>}</p>
+											<p className="price py-2 h5">{data.price == 0 || data.price == null ? null : <>$USD {data.price} &nbsp; {/*<strike className="text-danger">$USD {data.price}</strike>*/}</>}</p>
 											<p>Github-Repos:<a href={data.github}>{data.github}</a></p>
 											<button className="btn btn-info text-white cartBtn disabled me-2"><ShoppingCartIcon style={{ marginTop: "-5px", marginRight: "5px", fontSize: "18px" }} /> Add to Cart</button>
 											<a href={data.url} className="btn btn-info text-white viewBtn me-2" style={(data.url) != "" ? { pointerEvents: "all", opacity: "1" } : { pointerEvents: "none", opacity: "0.6" }}><VisibilityIcon style={{ marginTop: "-3px", marginRight: "5px", fontSize: "20px" }} /> View Site</a>
