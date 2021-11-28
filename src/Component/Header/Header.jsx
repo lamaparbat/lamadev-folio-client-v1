@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import { Link as NavLink } from 'react-scroll'
 import LoaderSpinner from '../Body/Loader/Loader'
 import clsx from 'clsx';

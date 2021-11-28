@@ -42,7 +42,7 @@ const Project = () => {
 	const deleteTemplate = (e,src) => {
 		e.stopPropagation()
 		//https://parbat-backend.herokuapp.com
-		axios.post('http://localhost:5000/deleteProject', {
+		axios.post('https://parbat-backend.herokuapp.com/deleteProject', {
 			src: src
 		}).then((res, err) => {
 			deleteToast();
@@ -53,7 +53,7 @@ const Project = () => {
 	const [fetchedData, setFetchedData] = useState([])
 	
 	useEffect(() => {
-		axios.get("http://localhost:5000/allProjects").then(data => {
+		axios.get("https://parbat-backend.herokuapp.com/allProjects").then(data => {
 			setFetchedData(data.data);
 		})
 		if (fetchedData) {

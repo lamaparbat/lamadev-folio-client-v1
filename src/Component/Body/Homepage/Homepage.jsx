@@ -5,6 +5,7 @@ import { $ } from 'react-jquery-plugin'
 import { isLoadingCheck } from '../../../Actions/index.js'
 import VisibilityIcon from '@material-ui/icons/Visibility'
 import LinearProgress from '@material-ui/core/LinearProgress'
+import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -113,7 +114,6 @@ const Card = (props) => {
 						</div>
 					</div>
 					<h5 className="card-title mt-2 animate__animated ">{props.title}</h5>
-					<p className="card-text text-center animate__animated " style={{ color: props.textColor }}>{props.description}</p>
 				</div>
 				<div className="d-flex">
 					<div className="card_next_icon text-dark">
@@ -131,34 +131,34 @@ const ProgrammingTools = () => {
 		<>
 			<div className="col-md-10 mx-auto">
 				<div className="row">
-					<h3 className="mb-5" id="programming_title"><strong>Programming Tools</strong></h3>
+					<h3 className="mb-5" id="programming_title"><strong>Programming Technologies</strong></h3>
 					<div className="col-lg-3">
 						<Card title="HTML5"
 							bg="#fd7e14" color="white"
 							src={process.env.PUBLIC_URL + "/img/html.png"} size="50"
 							delay="0s"
-							description="HTML5 is a markup language used for structuring and presenting content on the World Wide Web. " />
+						/>
 					</div>
 					<div className="col-lg-3">
-						<Card title="JAVASCRIPT" bg="" color="" src={process.env.PUBLIC_URL + "/img/js.png"} size="50" delay="1s" description="JavaScript is the world's most popular programming language." />
+						<Card title="Javascript" bg="" color="" src={process.env.PUBLIC_URL + "/img/js.png"} size="50" delay="1s" />
 					</div>
 					<div className="col-lg-3">
-						<Card title="PHP" bg="" color="" src={process.env.PUBLIC_URL + "/img/php.png"} size="60" delay="2s" description="PHP is a popular general-purpose scripting language that is especially suited to web development." />
+						<Card title="Php" bg="" color="" src={process.env.PUBLIC_URL + "/img/php.png"} size="60" delay="2s" />
 					</div>
 					<div className="col-lg-3">
-						<Card title="MySQL" bg="" color="" src={process.env.PUBLIC_URL + "/img/mysql.png"} size="60" delay="3s" description="MySQL Database Service is a fully managed database service to deploy cloud-native applications. " />
+						<Card title="MySQL" bg="" color="" src={process.env.PUBLIC_URL + "/img/mysql.png"} size="60" delay="3s" />
 					</div>
 					<div className="col-lg-3">
-						<Card title="React JS" bg="" color="" src={process.env.PUBLIC_URL + "/img/react.png"} size="60" delay="4s" description="React is a free and open-source front-end JavaScript library for building user interfaces or UI components." />
+						<Card title="React JS" bg="" color="" src={process.env.PUBLIC_URL + "/img/react.png"} size="60" delay="4s" />
 					</div>
 					<div className="col-lg-3">
-						<Card title="C PROGRAMMING" bg="" color="" src={process.env.PUBLIC_URL + "/img/c.png"} size="60" delay="5s" description="C is a general-purpose, procedural computer programming language supporting structured programming." />
+						<Card title="C Programming" bg="" color="" src={process.env.PUBLIC_URL + "/img/c.png"} size="60" delay="5s" />
 					</div>
 					<div className="col-lg-3">
-						<Card title="JAVA" bg="" color="" src={process.env.PUBLIC_URL + "/img/java.png"} size="60" delay="6s" description="Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible." />
+						<Card title="Java" bg="" color="" src={process.env.PUBLIC_URL + "/img/java.png"} size="60" delay="6s" />
 					</div>
 					<div className="col-lg-3">
-						<Card title="PYTHON" bg="" color="" src={process.env.PUBLIC_URL + "/img/python.png"} size="60" delay="7s" description="Python is an interpreted high-level general-purpose programming language. Its design philosophy emphasizes code readability with its use of significant indentation. " />
+						<Card title="Python" bg="" color="" src={process.env.PUBLIC_URL + "/img/python.png"} size="60" delay="7s" />
 					</div>
 				</div>
 			</div>
@@ -178,11 +178,23 @@ const AboutMe = () => {
 						<img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" className="img-fluid animate__animated animate__slideInUp" />
 					</div>
 					<div className="col-lg-6 pt-4 aboutUsTextCol">
-						<h1 className="text-justify animate__animated animate__zoomIn" id="aboutUs_title"><strong>WANNA KNOW ME ?</strong></h1><br />
-						<p className="aboutUsText m-0 p-0 animate__animated animate__slideInUp">Hi! I am Parbat Lama from Kathmandu, a web designer/developer focused on
-							rafting great web experiences. I enjoy creating beautifully designed, intuitive and functional
-							websites.</p>
-						<h5 className="text-white" style={{ fontFamily: "arial" }}><strong>MY SKILLS</strong></h5>
+						<h1 className="text-justify animate__animated animate__zoomIn" id="aboutUs_title"><strong>KNOW ABOUT ME ?</strong></h1><br />
+							<div className="d-flex">
+								<img src={process.env.PUBLIC_URL + "/img/uniglobe.png"} height="50" width="120" style={{ marginLeft: "-12px", marginTop: "-2px" }} />
+								<div className="d-block">
+									<span ><b>Higher Secondary School</b></span><br/>
+								 <p className="text-" style={{ fontSize: "13px" }}>- ( 2017 A.D - 2020 A.D )</p>
+								<p className="bg-dark text-white px-2" style={{ width: "fit-content", fontSize: "11px", marginTop: "-12px", marginLeft: "9px", borderRadius: "10px" }}>completed</p>
+								</div>
+							</div>
+						<div className="d-flex" style={{marginTop:"0px"}}>
+							<img src={process.env.PUBLIC_URL + "/img/wlv.jpeg"} height="70" width="80" />
+							<div className="d-block">
+								<p style={{ marginLeft: "30px" }}><b>Bsc. (Hons) Computer Science</b></p>
+								<p style={{ marginLeft: "30px", marginTop: "-18px", fontSize: "13px" }} >- ( 2021 A.D - 2024 A.D )</p>
+								<p className="bg-success text-white px-2" style={{ width: "fit-content", fontSize: "11px", marginTop: "-12px", marginLeft: "38px", borderRadius:"10px" }}> Ongoing ..</p>
+							</div>
+						</div>
 						<div className="academic">
 							<div className="ml-2 w-100">
 								<h6 className="animate__animated animate__slideInLeft">Communication</h6>
@@ -204,8 +216,7 @@ const AboutMe = () => {
 								<h1 className="animate__animated animate__slideInRight">100%</h1>
 							</div>
 						</div>
-
-						<button className="btn mt-2 px-4 aboutUs_btn animate__animated animate__zoomIn" onClick={downloadCV}><GetAppIcon id="viewIcon" />DOWNLOAD CV</button>
+						<button className="btn mt-1 px-4 aboutUs_btn animate__animated animate__zoomIn" onClick={downloadCV}><GetAppIcon id="viewIcon" />DOWNLOAD CV</button>
 					</div>
 				</div>
 			</div>
@@ -295,7 +306,7 @@ const SideIcon = () => {
 		</>
 	)
 }
-const SubscriberCount = ({count}) => {
+const SubscriberCount = ({ count }) => {
 	const [timer, setTime] = useState("00:00:00")
 	setInterval(() => {
 		let time = new Date().toLocaleTimeString()
@@ -342,14 +353,14 @@ const Homepage = () => {
 			setSubscriberCount(count.data.count)
 		})
 	});
-	
-	
+
+
 	//subcribe btn clicked
 	const subscribeSuccessToast = () => toast.success("Thank you !!")
 	const errorSubscribeToast = () => toast.error("Email is invalid !!")
 	const alreadySubscriberExist = () => toast.error("Email already exist. Thank you !!")
 	const emptyToast = () => toast.error("Field is empty !!")
-	
+
 	const subscribeBtnClicked = () => {
 		if (email.current.value) {
 			if (email.current.value.search("@") > 0 && email.current.value.search("gmail") > 0 && email.current.value.search(".") >= 0 && email.current.value.search("com") > 0) {
@@ -378,9 +389,9 @@ const Homepage = () => {
 			>
 				<Modal.Header style={{ height: "30vh", backgroundSize: "cover", backgroundImage: "url('https://images.unsplash.com/photo-1512054502232-10a0a035d672?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')" }}></Modal.Header>
 				<Modal.Body>
-					<h5 className="text-dark"><span className="h3 text-danger">Get </span>Update from anywhere</h5>
-					<p className="mx-1" style={{ marginTop: "-10px" }}>subscribe to get more information</p>
-					<div className="py-3" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+					<h6 className="text-dark"><span className="h3 text-danger">WELCOME </span>My dear friend !!</h6>
+					<p className="mx-1" style={{ marginTop: "-5px" }}>Subscribe to get more information</p>
+					<div className="py-1" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 						<input type="email" ref={email} placeholder="Enter your email address" className="form-control rounded-0" />
 						<button className="btn btn-danger rounded-0 mx-2 px-4 subscribeBtn" onClick={subscribeBtnClicked}>Subscribe</button>
 					</div>
@@ -401,20 +412,16 @@ const Homepage = () => {
 							<div className="row banner bg-light">
 								<Banner />
 							</div>
-
-							<div className="row features text-dark">
-
-							</div>
-
-							<div className="row aboutUs mt-3">
+							<div className="row features text-dark"></div>
+							<div className="row aboutUs mt-3" id="aboutUs">
 								<AboutMe />
 							</div>
 
-							<div className="row services mt-3">
+							<div className="row services mt-3" id="services">
 								<Services />
 							</div>
 
-							<div className="row mt-4 py-4 programming_card_container">
+							<div className="row mt-4 py-4 programming_card_container" id="programming_card_container">
 								<ProgrammingTools />
 							</div>
 
