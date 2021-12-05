@@ -25,6 +25,7 @@ import { firebase } from '../../../firebase'
 import LoaderSpinner from '../Loader/Loader'
 import { Button, Modal } from 'react-bootstrap'
 import Pusher from 'pusher-js';
+import fileDownloader from 'js-file-download';
 import axios from 'axios'
 import 'animate.css'
 import './Homepage.css'
@@ -168,7 +169,13 @@ const ProgrammingTools = () => {
 
 const AboutMe = () => {
 	const downloadCV = () => {
-		toast.info("CV is currently unavailable !!")
+		//set request to server for downloading
+		//http://localhost:5000
+		axios.get("https://parbat-backend.herokuapp.com/getResume", {
+			responseType: 'blob'
+		}).then(res => {
+			fileDownloader(res.data, "ParbatLama_Resume.pdf");
+		})
 	}
 	return (
 		<>

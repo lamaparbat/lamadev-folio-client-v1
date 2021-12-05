@@ -59,7 +59,8 @@ const Admin = () => {
 		e.preventDefault()
 		let form = document.getElementById('form');
 		let formData = new FormData(form);
-		axios.post('https://parbat-backend.herokuapp.com/uploadProject', formData);
+		//https://parbat-backend.herokuapp.com
+		axios.post('http://localhost:5000/uploadProject', formData);
 		setData({
 			title: "",
 			description: "",
