@@ -9,9 +9,8 @@ import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import ComputerIcon from '@material-ui/icons/Computer';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -287,8 +286,8 @@ const SideIcon = () => {
 	const redirectInsta = () => {
 		window.location.assign("https://www.instagram.com/prabhattmg/")
 	}
-	const redirectTwitter = () => {
-		window.location.assign("https://twitter.com/LamaParbat70")
+	const redirectGithub = () => {
+		window.location.assign("https://github.com/lamaparbat")
 	}
 	const redirectLinked = () => {
 		window.location.assign("https://www.linkedin.com/in/parbat-lama-0bb4101b8/")
@@ -301,8 +300,8 @@ const SideIcon = () => {
 			<div className="fbIcon mb-2 animate__animated animate__slideInLeft animate__delay-0s" style={{ width: "fit-content", padding: "10px", paddingRight: "15px", marginLeft: "-12px", borderTopRightRadius: "10px", backgroundColor: "DarkBlue" }} onClick={redirectFb}>
 				<FacebookIcon style={{ color: "white", fontSize: "25px" }} />
 			</div>
-			<div className="fbIcon mb-2 animate__animated animate__slideInLeft animate__delay-1s" style={{ width: "fit-content", padding: "9px", paddingRight: "15px", marginLeft: "-12px", borderTopRightRadius: "10px", backgroundColor: "OrangeRed" }} onClick={redirectTwitter}>
-				<TwitterIcon style={{ color: "white", fontSize: "25px" }} />
+			<div className="fbIcon mb-2 animate__animated animate__slideInLeft animate__delay-1s" style={{ width: "fit-content", padding: "9px", paddingRight: "15px", marginLeft: "-12px", borderTopRightRadius: "10px", backgroundColor: "OrangeRed" }} onClick={redirectGithub}>
+				<GitHubIcon style={{ color: "white", fontSize: "25px" }} />
 			</div>
 			<div className="fbIcon mb-2 animate__animated animate__slideInLeft animate__delay-2s" style={{ width: "fit-content", padding: "9px", paddingRight: "15px", marginLeft: "-12px", borderTopRightRadius: "10px", backgroundColor: "green" }} onClick={redirectLinked}>
 				<LinkedInIcon style={{ color: "white", fontSize: "25px" }} />
