@@ -64,7 +64,7 @@ const SelectedSite = () => {
 												{
 													data.img.slice(0).reverse().map((src, index) => (
 														<div>
-															<img key={index} src={__dirname + "uploads/" + src} />
+															<img key={index} src={__dirname + "uploads/" + src} loading="lazy" />
 														</div>
 													))
 												}

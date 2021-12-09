@@ -95,7 +95,7 @@ const Banner = () => {
 					</div>
 					<div className="col-lg-5 py-5 order-first order-lg-last bg-white">
 						<div className="slider" style={{ height: "280px", width: "100%" }}>
-							<img src="./img/programmer2.svg" className="bannerImg animate__animated animate__slideInUp" height="100%" width="100%" />
+							<img src="./img/programmer2.svg" className="bannerImg animate__animated animate__slideInUp" height="100%" width="100%" loading="lazy" />
 						</div>
 					</div>
 				</div>
@@ -111,7 +111,7 @@ const Card = (props) => {
 				<div className="card-body text-center">
 					<div className="card-img-wrapper d-flex justify-content-center animate__animated ">
 						<div className="bob mb-1" style={{ background: `url('${process.env.PUBLIC_URL}/img/blob.svg')` }}>
-							<img src={props.src} height={props.size} width={props.size} />
+							<img src={props.src} height={props.size} width={props.size} loading="lazy" />
 						</div>
 					</div>
 					<h5 className="card-title mt-2 animate__animated ">{props.title}</h5>
@@ -182,12 +182,12 @@ const AboutMe = () => {
 			<div className="col-10 mx-auto">
 				<div className="row py-2">
 					<div className="col-lg-6 mt-3 mb-3 aboutUs_img_col">
-						<img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" className="img-fluid animate__animated animate__slideInUp" />
+						<img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" className="img-fluid animate__animated animate__slideInUp" loading="lazy" />
 					</div>
 					<div className="col-lg-6 pt-4 aboutUsTextCol">
 						<h1 className="text-justify animate__animated animate__zoomIn" id="aboutUs_title"><strong>KNOW ABOUT ME ?</strong></h1><br />
 							<div className="d-flex">
-								<img src={process.env.PUBLIC_URL + "/img/uniglobe.png"} height="50" width="120" style={{ marginLeft: "-12px", marginTop: "-2px" }} />
+							<img src={process.env.PUBLIC_URL + "/img/uniglobe.png"} height="50" width="120" loading="lazy" style={{ marginLeft: "-12px", marginTop: "-2px" }} />
 								<div className="d-block">
 									<span ><b>Higher Secondary School</b></span><br/>
 								 <p className="text-" style={{ fontSize: "13px" }}>- ( 2017 A.D - 2020 A.D )</p>
@@ -195,7 +195,7 @@ const AboutMe = () => {
 								</div>
 							</div>
 						<div className="d-flex" style={{marginTop:"0px"}}>
-							<img src={process.env.PUBLIC_URL + "/img/wlv.jpeg"} height="70" width="80" />
+							<img src={process.env.PUBLIC_URL + "/img/wlv.jpeg"} height="70" width="80" loading="lazy" />
 							<div className="d-block">
 								<p style={{ marginLeft: "30px" }}><b>Bsc. (Hons) Computer Science</b></p>
 								<p style={{ marginLeft: "30px", marginTop: "-18px", fontSize: "13px" }} >- ( 2021 A.D - 2024 A.D )</p>
@@ -223,7 +223,7 @@ const AboutMe = () => {
 								<h1 className="animate__animated animate__slideInRight">100%</h1>
 							</div>
 						</div>
-						<button className="btn mt-1 px-4 aboutUs_btn animate__animated animate__zoomIn" onClick={downloadCV}><GetAppIcon id="viewIcon" />DOWNLOAD CV</button>
+						<button className="btn mt-1 px-4 aboutUs_btn animate__animated animate__zoomIn" onClick={downloadCV}><GetAppIcon id="viewIcon" />DOWNLOAD RESUME</button>
 					</div>
 				</div>
 			</div>
@@ -271,7 +271,7 @@ const Services = () => {
 						<Coupon />
 					</div>
 					<div className="col-sm-6">
-						<img id="services_img" className="" src="https://images.unsplash.com/photo-1516131206008-dd041a9764fd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80" />
+						<img id="services_img" className="" src="https://images.unsplash.com/photo-1516131206008-dd041a9764fd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80" loading="lazy" />
 					</div>
 				</div>
 			</div>
