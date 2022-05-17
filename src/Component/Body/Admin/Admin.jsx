@@ -63,12 +63,12 @@ const Admin = () => {
 	}
 	
 //send data to server for upload to db
-	const submitData = (e) => {
+	const submitData = async(e) => {
 		e.preventDefault()
 		let form = document.getElementById('form');
 		let formData = new FormData(form);
-		//https://parbat-backend.herokuapp.com
-		axios.post('http://localhost:8080/uploadProject', formData);
+		const res = axios.post('https://parbat-backend.herokuapp.com/uploadProject', formData);
+		console.log(res)
 		setData({
 			title: "",
 			description: "",

@@ -1,11 +1,9 @@
 import { React, useState, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { $ } from 'react-jquery-plugin'
 import { isLoadingCheck } from '../../../Actions/index.js'
 import VisibilityIcon from '@material-ui/icons/Visibility'
-import LinearProgress from '@material-ui/core/LinearProgress'
-import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -377,7 +375,6 @@ const Homepage = () => {
 			>
 				<Modal.Header style={{ height: "30vh", backgroundSize: "cover", backgroundImage: "url('https://images.unsplash.com/photo-1512054502232-10a0a035d672?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')" }}></Modal.Header>
 				<Modal.Body>
-					<h6 className="text-dark"><span className="h3 text-danger">WELCOME </span>My dear friend !!</h6>
 					<p className="mx-1" style={{ marginTop: "-5px" }}>Subscribe to get more information</p>
 					<div className="py-1" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 						<input type="email" ref={email} placeholder="Enter your email address" className="form-control rounded-0" />

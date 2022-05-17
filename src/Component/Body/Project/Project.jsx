@@ -50,6 +50,7 @@ const Project = () => {
 	
 	useEffect(() => {
 		axios.get("https://parbat-backend.herokuapp.com/allProjects").then(data => {
+			console.log(data)
 			setFetchedData(data.data);
 		})
 		if (fetchedData) {
