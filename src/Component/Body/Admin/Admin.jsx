@@ -14,6 +14,7 @@ const Admin = () => {
 		description: "",
 		price: "",
 		github: "",
+		hostURL: "",
 		file: {}
 	})
 
@@ -54,18 +55,25 @@ const Admin = () => {
 		})
 	}
 	
+	const setHostURL = (e) => {
+		setData({
+			...templateData,
+			hostURL: e.target.value
+		})
+	}
+	
 //send data to server for upload to db
 	const submitData = (e) => {
 		e.preventDefault()
 		let form = document.getElementById('form');
 		let formData = new FormData(form);
 		//https://parbat-backend.herokuapp.com
-		axios.post('http://localhost:5000/uploadProject', formData);
+		axios.post('http://localhost:8080/uploadProject', formData);
 		setData({
 			title: "",
 			description: "",
-			price: "",
 			github: "",
+			hostURL:"",
 			file: {}
 		})
 	}
@@ -86,8 +94,8 @@ const Admin = () => {
 								<form onSubmit={submitData} encType="multiple/form-data" id="form">
 									<input type="text" className="title form-control" placeholder="Enter Website name" name="title" value={templateData.title} onChange={inputEvent} /><br />
 									<textarea className="description form-control" placeholder="Describe in short" name="description" value={templateData.description} onChange={inputEvent} ></textarea><br />
-									<input type="text" className="price form-control" placeholder="Enter website price" name="price" value={templateData.price} onChange={inputEvent} /><br />
-									<input type="text" className="form-control" name="github" value={templateData.github} onChange={setGithub} placeholder="Enter github repository url "/><br/>
+									<input type="text" className="form-control" name="github" value={templateData.github} onChange={setGithub} placeholder="Enter github repository url " /><br />
+									<input type="text" className="form-control" name="hostURL" value={templateData.hostURL} onChange={setHostURL} placeholder="Enter hosted url " /><br />
 									<input type="file" className="price form-control" id="file" multiple name="file" onChange={(e) => setImage(e)} /><br />
 									<button type="submit" className="btn btn-info text-white">Upload Template</button>
 								</form>

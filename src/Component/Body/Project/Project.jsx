@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
@@ -17,8 +16,6 @@ const Project = () => {
 	//loader 
 	const [isLoading, setLoading] = useState(true);
 
-	const dispatch = useDispatch();
-
 	let history = useHistory();
 	
 	let path = 'SelectedSite';
@@ -28,20 +25,19 @@ const Project = () => {
 		window.localStorage.setItem("data", JSON.stringify(data));
 		setTimeout(() => {
 			history.push(path);
-		}, 2000)
+		}, 1000)
 	}
 
 	//redirec to homepage
 	const redirectHome = () => {
 		setTimeout(() => {
 			history.push("/");
-		}, 2000)
+		}, 1000)
 	}
 
 	//delete the template
 	const deleteTemplate = (e,src) => {
 		e.stopPropagation()
-		//https://parbat-backend.herokuapp.com
 		axios.post('https://parbat-backend.herokuapp.com/deleteProject', {
 			src: src
 		}).then((res, err) => {
@@ -111,7 +107,7 @@ const Project = () => {
 									{
 										fetchedData.map((data, index) => {
 											return (
-												<Card title={data.title} description={data.description} price={data.price} github={data.github} img={data.file} id={index} key={index} />
+												<Card title={data.title} description={data.description} hostURL={data.hostURL} github={data.github} img={data.file} id={index} key={index} />
 											)
 										})
 									}

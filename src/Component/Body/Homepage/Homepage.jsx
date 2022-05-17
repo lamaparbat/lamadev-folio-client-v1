@@ -22,9 +22,8 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord'
 import GetAppIcon from '@material-ui/icons/GetApp';
 import { firebase } from '../../../firebase'
 import LoaderSpinner from '../Loader/Loader'
-import { Button, Modal } from 'react-bootstrap'
+import {Modal } from 'react-bootstrap'
 import Pusher from 'pusher-js';
-import fileDownloader from 'js-file-download';
 import axios from 'axios'
 import 'animate.css'
 import './Homepage.css'
@@ -110,7 +109,7 @@ const Card = (props) => {
 				<div className="card-body text-center">
 					<div className="card-img-wrapper d-flex justify-content-center animate__animated ">
 						<div className="bob mb-1" style={{ background: `url('${process.env.PUBLIC_URL}/img/blob.svg')` }}>
-							<img src={props.src} height={props.size} width={props.size} loading="lazy" />
+							<img src={props.src} className="img-fluid p-2" loading="lazy" />
 						</div>
 					</div>
 					<h5 className="card-title mt-2 animate__animated ">{props.title}</h5>
@@ -129,36 +128,29 @@ const Card = (props) => {
 const ProgrammingTools = () => {
 	return (
 		<>
-			<div className="col-md-10 mx-auto">
+			<div className="col-md-10 mx-auto" id='programming_tech'>
 				<div className="row">
-					<h3 className="mb-5" id="programming_title"><strong>Programming Technologies</strong></h3>
+					<h3 className="mb-5" id="programming_title"><strong>Tech Stacks</strong></h3>
 					<div className="col-lg-3">
-						<Card title="HTML5"
-							bg="#fd7e14" color="white"
-							src={process.env.PUBLIC_URL + "/img/html.png"} size="50"
-							delay="0s"
-						/>
+						<Card title="React JS" bg="#fd7e14" color="white" src={process.env.PUBLIC_URL + "/img/react.png"} delay="1s" />
 					</div>
 					<div className="col-lg-3">
-						<Card title="Javascript" bg="" color="" src={process.env.PUBLIC_URL + "/img/js.png"} size="50" delay="1s" />
+						<Card title="Node JS" bg="" color="" src={process.env.PUBLIC_URL + "/img/node.png"} delay="2s" />
 					</div>
 					<div className="col-lg-3">
-						<Card title="Php" bg="" color="" src={process.env.PUBLIC_URL + "/img/php.png"} size="60" delay="2s" />
+						<Card title="MySQL" bg="" color="" src={process.env.PUBLIC_URL + "/img/mysql.png"} delay="3s" />
 					</div>
 					<div className="col-lg-3">
-						<Card title="MySQL" bg="" color="" src={process.env.PUBLIC_URL + "/img/mysql.png"} size="60" delay="3s" />
+						<Card title="MongoDB" bg="" color="" src={process.env.PUBLIC_URL + "/img/mongo.jpeg"} delay="4s" />
 					</div>
 					<div className="col-lg-3">
-						<Card title="React JS" bg="" color="" src={process.env.PUBLIC_URL + "/img/react.png"} size="60" delay="4s" />
+						<Card title="PHP(Core)" bg="" color="" src={process.env.PUBLIC_URL + "/img/php.png"} delay="5s" />
 					</div>
 					<div className="col-lg-3">
-						<Card title="C Programming" bg="" color="" src={process.env.PUBLIC_URL + "/img/c.png"} size="60" delay="5s" />
+						<Card title="Bootstrap 4" bg="" color="" src={process.env.PUBLIC_URL + "/img/boot.png"} delay="5s" />
 					</div>
 					<div className="col-lg-3">
-						<Card title="Java" bg="" color="" src={process.env.PUBLIC_URL + "/img/java.png"} size="60" delay="6s" />
-					</div>
-					<div className="col-lg-3">
-						<Card title="Python" bg="" color="" src={process.env.PUBLIC_URL + "/img/python.png"} size="60" delay="7s" />
+						<Card title="Jquery" bg="" color="" src={process.env.PUBLIC_URL + "/img/jquery.webp"} delay="5s" />
 					</div>
 				</div>
 			</div>
@@ -167,18 +159,9 @@ const ProgrammingTools = () => {
 }
 
 const AboutMe = () => {
-	const downloadCV = () => {
-		//set request to server for downloading
-		//http://localhost:5000
-		axios.get("https://parbat-backend.herokuapp.com/getResume", {
-			responseType: 'blob'
-		}).then(res => {
-			fileDownloader(res.data, "ParbatLama_Resume.pdf");
-		})
-	}
 	return (
 		<>
-			<div className="col-10 mx-auto">
+			<div className="col-10 mx-auto" id='about'>
 				<div className="row py-2">
 					<div className="col-lg-6 mt-3 mb-3 aboutUs_img_col">
 						<img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" className="img-fluid animate__animated animate__slideInUp" loading="lazy" />
@@ -190,7 +173,7 @@ const AboutMe = () => {
 								<div className="d-block">
 									<span ><b>Higher Secondary School</b></span><br/>
 								 <p className="text-" style={{ fontSize: "13px" }}>- ( 2017 A.D - 2020 A.D )</p>
-								<p className="bg-dark text-white px-2" style={{ width: "fit-content", fontSize: "11px", marginTop: "-12px", marginLeft: "9px", borderRadius: "10px" }}>completed</p>
+								<p className="bg-success text-white px-2" style={{ width: "fit-content", fontSize: "11px", marginTop: "-12px", marginLeft: "9px", borderRadius: "10px" }}>completed</p>
 								</div>
 							</div>
 						<div className="d-flex" style={{marginTop:"0px"}}>
@@ -198,7 +181,7 @@ const AboutMe = () => {
 							<div className="d-block">
 								<p style={{ marginLeft: "30px" }}><b>Bsc. (Hons) Computer Science</b></p>
 								<p style={{ marginLeft: "30px", marginTop: "-18px", fontSize: "13px" }} >- ( 2021 A.D - 2024 A.D )</p>
-								<p className="bg-success text-white px-2" style={{ width: "fit-content", fontSize: "11px", marginTop: "-12px", marginLeft: "38px", borderRadius:"10px" }}> Ongoing ..</p>
+								<p className="bg-danger text-white px-2" style={{ width: "fit-content", fontSize: "11px", marginTop: "-12px", marginLeft: "38px", borderRadius:"10px" }}> Ongoing ..</p>
 							</div>
 						</div>
 						<div className="academic">
@@ -218,11 +201,11 @@ const AboutMe = () => {
 								<h1 className="animate__animated animate__slideInLeft">95%</h1>
 							</div>
 							<div className="ml-2 w-100">
-								<h6 className="animate__animated animate__slideInRight">Customer Trust</h6>
+								<h6 className="animate__animated animate__slideInRight">Team work</h6>
 								<h1 className="animate__animated animate__slideInRight">100%</h1>
 							</div>
 						</div>
-						<button className="btn mt-1 px-4 aboutUs_btn animate__animated animate__zoomIn" onClick={downloadCV}><GetAppIcon id="viewIcon" />DOWNLOAD RESUME</button>
+						<button className="btn mt-1 px-4 aboutUs_btn animate__animated animate__zoomIn" onClick={() =>window.location.assign("https://www.dropbox.com/s/qteayxne8qfh0lf/Parbat_Lama_CV.pdf?dl=1")}><GetAppIcon id="viewIcon" />DOWNLOAD CV</button>
 					</div>
 				</div>
 			</div>
@@ -334,7 +317,6 @@ const SubscriberCount = ({ count }) => {
 }
 
 const Homepage = () => {
-	const db = firebase.firestore()
 	const email = useRef(null)
 	const [isLoading, setLoading] = useState(false)
 	const [show, setShow] = useState(false);

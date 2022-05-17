@@ -77,7 +77,7 @@ const Footer = () => {
 	})
 	return(
 		  <>
-		   <div className="container footer pb-5">
+		   <div className="container footer pb-5" id='footer'>
 		     <div className="row py-5">
 		       <div className="col-1"></div>
 		       <div className="col-10">
