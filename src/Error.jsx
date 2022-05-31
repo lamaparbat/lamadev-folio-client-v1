@@ -1,4 +1,5 @@
 const Error = () => {
+	// styling of error component -> css
 	const styleSheet =  {
 		height:"46vh",
 		display:"grid",
