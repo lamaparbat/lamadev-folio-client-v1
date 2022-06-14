@@ -84,14 +84,6 @@ p {
 
 .certification .row .cerficateCard {
 	width: 480px;
-	cursor: pointer;
-	transition: 0.2s ease-in-out;
-}
-
-.certification .row .cerficateCard:hover {
-	box-shadow: 0px 2px 5px 0px rgba(191, 191, 191, 0.75);
-	-webkit-box-shadow: 0px 2px 5px 0px rgba(191, 191, 191, 0.75);
-	-moz-box-shadow: 0px 2px 5px 0px rgba(191, 191, 191, 0.75);
 }
 
 #credentialText {
