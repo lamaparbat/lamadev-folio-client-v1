@@ -150,6 +150,12 @@ const ProgrammingTools = () => {
 					<div className="col-lg-3">
 						<Card title="Jquery" bg="" color="" src={process.env.PUBLIC_URL + "/img/jquery.webp"} delay="5s" />
 					</div>
+					<div className="col-lg-3">
+						<Card title="AdobeXD" bg="" color="" src={process.env.PUBLIC_URL + "/img/xd.png"} delay="5s" />
+					</div>
+					<div className="col-lg-3">
+						<Card title="Material UI" bg="" color="" src={process.env.PUBLIC_URL + "/img/material.png"} delay="5s" />
+					</div>
 				</div>
 			</div>
 		</>
@@ -203,7 +209,7 @@ const AboutMe = () => {
 								<h1 className="animate__animated animate__slideInRight">100%</h1>
 							</div>
 						</div>
-						<button className="btn mt-1 px-4 aboutUs_btn animate__animated animate__zoomIn" onClick={() =>window.location.assign("https://www.dropbox.com/s/qteayxne8qfh0lf/Parbat_Lama_CV.pdf?dl=1")}><GetAppIcon id="viewIcon" />DOWNLOAD CV</button>
+						<button className="btn mt-1 px-4 aboutUs_btn animate__animated animate__zoomIn" onClick={() => window.location.assign("https://www.dropbox.com/s/vm9flqy8hin1xt8/Final_CV.pdf?dl=1")}><GetAppIcon id="viewIcon" />DOWNLOAD CV</button>
 					</div>
 				</div>
 			</div>

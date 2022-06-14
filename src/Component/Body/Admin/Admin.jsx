@@ -19,16 +19,17 @@ const Admin = () => {
 	})
 
 	//redirection page on unauthoraize access
-	const history = useHistory()
+	const history = useHistory();
+	
 	//get the email from firebase authentication
 	try {
 		const data = JSON.parse(localStorage.getItem("ParbatWeb"));
 		if (data) {
 		} else {
-			history.push("/")
+			history.push("/");
 		}
 	} catch (error) {
-		console.log(error)
+		console.log(error);
 	}
 
 
@@ -92,11 +93,11 @@ const Admin = () => {
 							</div>
 							<div className="col-lg-6 formContainer">
 								<form onSubmit={submitData} encType="multiple/form-data" id="form">
-									<input type="text" className="title form-control" placeholder="Enter Website name" name="title" value={templateData.title} onChange={inputEvent} /><br />
-									<textarea className="description form-control" placeholder="Describe in short" name="description" value={templateData.description} onChange={inputEvent} ></textarea><br />
-									<input type="text" className="form-control" name="github" value={templateData.github} onChange={setGithub} placeholder="Enter github repository url " /><br />
+									<input type="text" className="title form-control" placeholder="Enter Website name" name="title" value={templateData.title} onChange={inputEvent} required /><br />
+									<textarea className="description form-control" placeholder="Describe in short" name="description" value={templateData.description} onChange={inputEvent} required ></textarea><br />
+									<input type="text" className="form-control" name="github" value={templateData.github} onChange={setGithub} placeholder="Enter github repository url " required /><br />
 									<input type="text" className="form-control" name="hostURL" value={templateData.hostURL} onChange={setHostURL} placeholder="Enter hosted url " /><br />
-									<input type="file" className="price form-control" id="file" multiple name="file" onChange={(e) => setImage(e)} /><br />
+									<input type="file" className="price form-control" id="file" multiple name="file" onChange={(e) => setImage(e)}/><br />
 									<button type="submit" className="btn btn-info text-white">Upload Template</button>
 								</form>
 							</div>

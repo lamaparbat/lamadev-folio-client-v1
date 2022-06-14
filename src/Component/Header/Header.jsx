@@ -26,20 +26,31 @@ const useStyles = makeStyles({
 
 const Header = () => {
 	const [isLoading, setLoading] = useState()
-	let history = useHistory()
+	let history = useHistory();
+	
+	//redirect to the project
 	const seeProject = () => {
 		setLoading(true)
 		setTimeout(() => {
 			history.push("Project")
 			setLoading(false)
-		}, 1000)
+		}, 100)
+	}
+	
+	//redirect to the blogs
+	const seeBlogs = () => {
+		setLoading(true)
+		setTimeout(() => {
+			history.push("Blogs")
+			setLoading(false)
+		}, 100)
 	}
 	const redirectHome = () => {
 		setLoading(true)
 		setTimeout(() => {
 			history.push("/")
 			setLoading(false)
-		}, 1000)
+		}, 100)
 	}
 	//sidebar navigation
 	const classes = useStyles();
@@ -102,7 +113,7 @@ const Header = () => {
 											<a className="nav-link" onClick={seeProject}>MY PROJECTS</a>
 										</li>
 										<li className="nav-item">
-											<a className="nav-link" onClick={seeProject}>BLOGS</a>
+											<a className="nav-link" onClick={seeBlogs}>BLOGS</a>
 										</li>
 										<li className="nav-item" id='anchor'>
 											<a className='text-decoration-none text-secondary' href="#footer">SERVICES</a>
