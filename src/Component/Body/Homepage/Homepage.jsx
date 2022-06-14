@@ -320,6 +320,70 @@ const SubscriberCount = ({ count }) => {
 	)
 }
 
+const Certification = () => {
+	//show certificate
+	const showCertificate = (sub_title) => {
+		sub_title === "HackerRank" ? window.location.assign("https://www.hackerrank.com/certificates/f3fe1e1a2666?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate") : window.location.assign("https://www.freecodecamp.org/certification/fcc34061bfc-06ea-4e3c-8884-cf4298f686f4/front-end-development-libraries")
+	}
+	
+	const CerficateCard = ({src,title,sub_title,credential_id}) => {
+		return (
+			<div className='cerficateCard d-flex p-2 mb-2 py-3 rounded-1'>
+				<img height="50px" width="50px" src={src} alt='cerfication img' />
+				<div className='textContent mx-2'>
+					<h5>{title}</h5>
+					<span id='subTitle'>{sub_title}</span><br/>
+					<span id='credentialText'>Issued May 2022. No Expiration Date</span><br/>
+					<button className='btn btn- rounded-pill py-0 border-1 border-secondary viewCertificateBtn' onClick={() => showCertificate(sub_title)}>View certificate</button>
+				</div>
+			</div>
+)
+	}
+	
+	const InterestCard = ({src, title}) => {
+		return (
+			<div className='interest_card me-4 mb-2 d-flex flex-column align-items-center p-0'>
+				<img className='rounder-pill' height="100px" width="100px" src={src} />
+				<p className='p-0 m-0 mb-2'>{ title}</p>
+			</div>
+)
+	}
+	
+	return (
+		<div className='certification col-10 mx-auto mt-5' id='about'>
+			<h4 className='mx-4 mb-2'>Cerifications</h4>
+			<div className="row">
+				<div className="col-sm-6 px-1">
+					<CerficateCard src={process.env.PUBLIC_URL + "/img/free.jpeg"} title="Frontend Development Libraries" sub_title={"freeCodeCamp"} credential_id={""} />
+					<CerficateCard src={process.env.PUBLIC_URL + "/img/hacker.jpeg"} title="Web Application Developer Associate 10.4" sub_title={"HackerRank"} credential_id={"Credential ID F3FE1E1A2666"}  />
+				</div>
+				<div className="col-sm-6 p-2 px-4">
+					<h5>My Interests</h5>
+					<div className='interest_card_cont d-flex'>
+						<InterestCard src={process.env.PUBLIC_URL + "/img/coffee.jpeg"} title="Coffee & Music" />
+						<InterestCard src={process.env.PUBLIC_URL + "/img/design.jpeg"} title="UI/UX Design" />
+						<InterestCard src={process.env.PUBLIC_URL + "/img/research.jpeg"} title="Research" />
+					</div><br/>
+					<div className='interest_card_cont d-flex'>
+						<InterestCard src={process.env.PUBLIC_URL + "/img/football.jpeg"} title="Soccer ball" />
+						<InterestCard src={process.env.PUBLIC_URL + "/img/coding.png"} title="Programming" />
+						<InterestCard src={process.env.PUBLIC_URL + "/img/blockchain.jpeg"} title="Block Chain" />
+					</div>
+				</div>
+			</div>
+		</div>
+)
+}
+
+// experience row
+const Experience = () => {
+	return (
+		<div className='experience'>
+			<Certification />
+		</div>
+)
+}
+
 const Homepage = () => {
 	const email = useRef(null)
 	const [isLoading, setLoading] = useState(false)
@@ -406,6 +470,7 @@ const Homepage = () => {
 							<div className="row features text-dark"></div>
 							<div className="row aboutUs mt-3" id="aboutUs">
 								<AboutMe />
+								<Experience />
 							</div>
 
 							<div className="row services mt-3" id="services">
