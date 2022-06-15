@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { $ } from 'react-jquery-plugin'
@@ -13,14 +13,15 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import ComputerIcon from '@material-ui/icons/Computer';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import FireplaceIcon from '@material-ui/icons/Fireplace';
-import MobileFriendlyIcon from '@material-ui/icons/MobileFriendly'
+import MobileFriendlyIcon from '@material-ui/icons/MobileFriendly';
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord'
 import GetAppIcon from '@material-ui/icons/GetApp';
 import { firebase } from '../../../firebase'
 import LoaderSpinner from '../Loader/Loader'
-import {Modal } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import Pusher from 'pusher-js';
 import axios from 'axios'
 import 'animate.css'
@@ -172,20 +173,20 @@ const AboutMe = () => {
 					</div>
 					<div className="col-lg-6 pt-4 aboutUsTextCol">
 						<h1 className="text-justify animate__animated animate__zoomIn" id="aboutUs_title"><strong>KNOW ABOUT ME ?</strong></h1><br />
-							<div className="d-flex">
+						<div className="d-flex">
 							<img src={process.env.PUBLIC_URL + "/img/uniglobe.png"} height="50" width="120" loading="lazy" style={{ marginLeft: "-12px", marginTop: "-2px" }} />
-								<div className="d-block">
-									<span ><b>Higher Secondary School</b></span><br/>
-								 <p className="text-" style={{ fontSize: "13px" }}>- ( 2017 A.D - 2020 A.D )</p>
+							<div className="d-block">
+								<span ><b>Higher Secondary School</b></span><br />
+								<p className="text-" style={{ fontSize: "13px" }}>- ( 2017 A.D - 2020 A.D )</p>
 								<p className="bg-success text-white px-2" style={{ width: "fit-content", fontSize: "11px", marginTop: "-12px", marginLeft: "9px", borderRadius: "10px" }}>completed</p>
-								</div>
 							</div>
-						<div className="d-flex" style={{marginTop:"0px"}}>
+						</div>
+						<div className="d-flex" style={{ marginTop: "0px" }}>
 							<img src={process.env.PUBLIC_URL + "/img/wlv.jpeg"} height="70" width="80" loading="lazy" />
 							<div className="d-block">
 								<p style={{ marginLeft: "30px" }}><b>Bsc. (Hons) Computer Science</b></p>
 								<p style={{ marginLeft: "30px", marginTop: "-18px", fontSize: "13px" }} >- ( 2021 A.D - 2024 A.D )</p>
-								<p className="bg-danger text-white px-2" style={{ width: "fit-content", fontSize: "11px", marginTop: "-12px", marginLeft: "38px", borderRadius:"10px" }}> Ongoing ..</p>
+								<p className="bg-danger text-white px-2" style={{ width: "fit-content", fontSize: "11px", marginTop: "-12px", marginLeft: "38px", borderRadius: "10px" }}> Ongoing ..</p>
 							</div>
 						</div>
 						<div className="academic">
@@ -325,37 +326,37 @@ const Certification = () => {
 	const showCertificate = (sub_title) => {
 		sub_title === "HackerRank" ? window.location.assign("https://www.hackerrank.com/certificates/f3fe1e1a2666?utm_medium=email&utm_source=mail_template_1393&utm_campaign=hrc_skills_certificate") : window.location.assign("https://www.freecodecamp.org/certification/fcc34061bfc-06ea-4e3c-8884-cf4298f686f4/front-end-development-libraries")
 	}
-	
-	const CerficateCard = ({src,title,sub_title,credential_id}) => {
+
+	const CerficateCard = ({ src, title, sub_title, credential_id }) => {
 		return (
 			<div className='cerficateCard d-flex p-2 mb-2 py-3 rounded-1'>
 				<img height="50px" width="50px" src={src} alt='cerfication img' />
 				<div className='textContent mx-2'>
 					<h5>{title}</h5>
-					<span id='subTitle'>{sub_title}</span><br/>
-					<span id='credentialText'>Issued May 2022. No Expiration Date</span><br/>
+					<span id='subTitle'>{sub_title}</span><br />
+					<span id='credentialText'>Issued May 2022. No Expiration Date</span><br />
 					<button className='btn btn- rounded-pill py-0 border-1 border-secondary viewCertificateBtn' onClick={() => showCertificate(sub_title)}>View certificate</button>
 				</div>
 			</div>
-)
+		)
 	}
-	
-	const InterestCard = ({src, title}) => {
+
+	const InterestCard = ({ src, title }) => {
 		return (
 			<div className='interest_card me-4 mb-2 d-flex flex-column align-items-center p-0'>
 				<img className='rounder-pill' height="100px" width="100px" src={src} />
-				<p className='p-0 m-0 mb-2'>{ title}</p>
+				<p className='p-0 m-0 mb-2'>{title}</p>
 			</div>
-)
+		)
 	}
-	
+
 	return (
 		<div className='certification col-10 mx-auto mt-5' id='about'>
 			<h4 className='mx-4 mb-2'>Cerifications</h4>
 			<div className="row">
 				<div className="col-sm-6 px-1">
 					<CerficateCard src={process.env.PUBLIC_URL + "/img/free.jpeg"} title="Frontend Development Libraries" sub_title={"freeCodeCamp"} credential_id={""} />
-					<CerficateCard src={process.env.PUBLIC_URL + "/img/hacker.jpeg"} title="Web Application Developer Associate 10.4" sub_title={"HackerRank"} credential_id={"Credential ID F3FE1E1A2666"}  />
+					<CerficateCard src={process.env.PUBLIC_URL + "/img/hacker.jpeg"} title="Web Application Developer Associate 10.4" sub_title={"HackerRank"} credential_id={"Credential ID F3FE1E1A2666"} />
 				</div>
 				<div className="col-sm-6 p-2 px-4">
 					<h5>My Interests</h5>
@@ -363,7 +364,7 @@ const Certification = () => {
 						<InterestCard src={process.env.PUBLIC_URL + "/img/coffee.jpeg"} title="Coffee & Music" />
 						<InterestCard src={process.env.PUBLIC_URL + "/img/design.jpeg"} title="UI/UX Design" />
 						<InterestCard src={process.env.PUBLIC_URL + "/img/research.jpeg"} title="Research" />
-					</div><br/>
+					</div><br />
 					<div className='interest_card_cont d-flex'>
 						<InterestCard src={process.env.PUBLIC_URL + "/img/football.jpeg"} title="Soccer ball" />
 						<InterestCard src={process.env.PUBLIC_URL + "/img/coding.png"} title="Programming" />
@@ -372,7 +373,7 @@ const Certification = () => {
 				</div>
 			</div>
 		</div>
-)
+	)
 }
 
 // experience row
@@ -381,22 +382,50 @@ const Experience = () => {
 		<div className='experience'>
 			<Certification />
 		</div>
-)
+	)
 }
 
 const Homepage = () => {
-	const email = useRef(null)
-	const [isLoading, setLoading] = useState(false)
+	//image array
+	const img_array = ["https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", "https://images.unsplash.com/photo-1573495612937-f01934eeaaa7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80", "https://images.unsplash.com/photo-1501159873713-dc65286617cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", "https://images.unsplash.com/photo-1620674156044-52b714665d46?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80", "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80","https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"]
+	const email = useRef(null);
+	const [isLoading, setLoading] = useState(false);
 	const [show, setShow] = useState(false);
 	const [modalShow, setModalShow] = useState(true);
-	const [subscriberCount, setSubscriberCount] = useState(0)
+	const [current_quotes, setCurrentQuotes] = useState({});
+	const [subscriberCount, setSubscriberCount] = useState(0);
+	const [timer, setTimer] = useState(false);
+	const [current_src, setCurrentSrc] = useState();
+	
+	//auto increment quotes array index
+	var index = Math.floor(Math.random() * 1643);
+	var imageIndex = Math.floor(Math.random() * 5);
 
 	// subscribe count
-	useEffect(() => {
+	useEffect(() => {		
+		//fetching subscriber count
 		axios.get("https://parbat-backend.herokuapp.com/subscriberCount").then(count => {
 			setSubscriberCount(count.data.count)
-		})
-	}, [])
+		});
+		
+		//fetching quotes from 3rd party api
+		axios.get('https://type.fit/api/quotes').then((response) => {
+			try {
+				setCurrentQuotes(response.data[index])
+			} catch (error) {
+				return;
+			}
+		});
+		
+		setCurrentSrc(img_array[imageIndex]);
+
+	}, []);
+	
+	
+	setTimeout(() => {
+		setTimer(true)
+	}, 4000);
+	
 
 	//pusher -> visitors subscribed listener
 	var pusher = new Pusher('c8b41493bbaaefc790c7', {
@@ -432,7 +461,6 @@ const Homepage = () => {
 		} else {
 			emptyToast()
 		}
-
 	}
 
 	function MyVerticallyCenteredModal(props) {
@@ -443,11 +471,12 @@ const Homepage = () => {
 				aria-labelledby="contained-modal-title-vcenter"
 				centered
 			>
-				<Modal.Header style={{ height: "30vh", backgroundSize: "cover", backgroundImage: "url('https://images.unsplash.com/photo-1512054502232-10a0a035d672?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')" }}></Modal.Header>
+				<Modal.Header style={{ height: "30vh", backgroundSize: "cover", backgroundImage: `url(${current_src})` }}></Modal.Header>
 				<Modal.Body>
-					<p className="mx-1" style={{ marginTop: "-5px" }}>Subscribe to get more information</p>
-					<div className="py-1" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-						<input type="email" ref={email} placeholder="Enter your email address" className="form-control rounded-0" />
+					<p><FormatQuoteIcon id="quotes1" />{current_quotes.text}	<FormatQuoteIcon id="quotes2" /></p>
+					<span>- {current_quotes.author}</span>
+					<div className="pt-4 pb-3" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+						<input type="email" ref={email} placeholder="Enter your email address" className="form-control rounded-0 shadow-none" />
 						<button className="btn btn-danger rounded-0 mx-2 px-4 subscribeBtn" onClick={subscribeBtnClicked}>Subscribe</button>
 					</div>
 				</Modal.Body>
@@ -459,10 +488,12 @@ const Homepage = () => {
 			{
 				isLoading ? <LoaderSpinner /> :
 					<>
-						<MyVerticallyCenteredModal
-							show={modalShow}
-							onHide={() => setModalShow(false)}
-						/>
+						{
+							timer ? <MyVerticallyCenteredModal
+								show={modalShow}
+								onHide={() => setModalShow(false)}
+							/> : null
+						}
 						<div className="container-fluid pt-5">
 							<div className="row banner bg-light">
 								<Banner />
@@ -491,4 +522,4 @@ const Homepage = () => {
 		</>
 	)
 }
-export default Homepage
+export default Homepage;

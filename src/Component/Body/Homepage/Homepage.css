@@ -126,6 +126,14 @@ p {
 	overflow: hidden;
 }
 
+#quotes1 {
+	margin-top: -15px;
+	transform: rotate(180deg);
+}
+
+#quotes2 {
+	margin-top: -15px;
+}
 
 @-webkit-keyframes up-down {
 	0% {
@@ -491,9 +499,10 @@ p {
 }
 
 @media(max-width:500px) {
-.certification{
-  width: 100%;
-}
+	.certification {
+		width: 100%;
+	}
+
 	.interest_card_cont {
 		flex-flow: wrap;
 	}
@@ -508,7 +517,8 @@ p {
 		margin-top: 10px;
 		margin-left: 0px;
 	}
-.interest_card{
-  width: 100%;
-}
+
+	.interest_card {
+		width: 100%;
+	}
 }
