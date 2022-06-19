@@ -11,7 +11,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import ComputerIcon from '@material-ui/icons/Computer';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import FireplaceIcon from '@material-ui/icons/Fireplace';
 import MobileFriendlyIcon from '@material-ui/icons/MobileFriendly';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
@@ -19,13 +18,14 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord'
 import GetAppIcon from '@material-ui/icons/GetApp';
-import { firebase } from '../../../firebase'
+import { firebase } from '../../../firebase';
 import LoaderSpinner from '../Loader/Loader'
 import { Modal } from 'react-bootstrap'
 import Pusher from 'pusher-js';
 import axios from 'axios'
 import 'animate.css'
 import './Homepage.css'
+import { Dns, Web } from '@material-ui/icons'
 
 const Banner = () => {
 	// image slideshow
@@ -111,7 +111,7 @@ const Card = (props) => {
 							<img src={props.src} className="img-fluid p-2" loading="lazy" />
 						</div>
 					</div>
-					<h5 className="card-title mt-2 animate__animated ">{props.title}</h5>
+					<h5 className="card-title mt-3 animate__animated ">{props.title}</h5>
 				</div>
 				<div className="d-flex">
 					<div className="card_next_icon text-dark">
@@ -156,6 +156,12 @@ const ProgrammingTools = () => {
 					</div>
 					<div className="col-lg-3">
 						<Card title="Material UI" bg="" color="" src={process.env.PUBLIC_URL + "/img/material.png"} delay="5s" />
+					</div>
+					<div className="col-lg-3">
+						<Card title="Git & Github" bg="" color="" src={process.env.PUBLIC_URL + "/img/github_logo.png"} delay="5s" />
+					</div>
+					<div className="col-lg-3">
+						<Card title="Firebase (Auth)" bg="" color="" src={process.env.PUBLIC_URL + "/img/firebase.png"} delay="5s" />
 					</div>
 				</div>
 			</div>
@@ -225,21 +231,21 @@ const Coupon = () => {
 				<div className="d-flex">
 					<div className="text-center p-4 me-3 bg-danger animate__animated animate__fadeInUp">
 						<ComputerIcon id="icon" />
-						<h6 className="mt-2">Website Designing.</h6>
+						<h6 className="mt-2">Web Designing.. &nbsp;</h6>
 					</div>
 					<div className="text-center p-4 me-3 bg-danger animate__animated animate__fadeInUp">
-						<ShoppingCartIcon id="icon" />
-						<h6 className="mt-2">eCommerce Solutions</h6>
+						<Web id="icon" />
+						<h6 className="mt-2">Frontend Develop..</h6>
 					</div>
 				</div>
 				<div className="d-flex mt-2">
 					<div className="text-center p-4 me-3 bg-danger animate__animated animate__fadeInUp">
-						<MobileFriendlyIcon id="icon" />
-						<h6 className="mt-2">Responsive Theme.</h6>
+						<Dns id="icon" />
+						<h6 className="mt-2">Backend Devlop..</h6>
 					</div>
 					<div className="text-center p-4 me-3 bg-danger animate__animated animate__fadeInUp">
 						<FireplaceIcon id="icon" />
-						<h6 className="mt-2">100% PSD Conversion</h6>
+						<h6 className="mt-2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DevOps&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
 					</div>
 				</div>
 			</div>
@@ -253,8 +259,8 @@ const Services = () => {
 				<div className="row">
 					<div className="col-sm-5 pt-5">
 						<h2 id="services_title" className="">Services</h2>
-						<p id="services_text" className="">I`ll try my best to win your heart</p>
-						<h1 id="services_quotes" className="">Design Pixel - Perfect Themes</h1><br />
+						<p id="services_text" className="">Fullstack Web Development</p>
+						<h1 id="services_quotes" className="">Design, Develop, Deploy and Maintain Web services</h1><br />
 						<Coupon />
 					</div>
 					<div className="col-sm-6">
