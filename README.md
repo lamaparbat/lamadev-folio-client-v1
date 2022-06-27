@@ -8,7 +8,16 @@
 5. Jquery plugins
 6. Animate css (Animation Library)
 
-# Features
+## Features
 1. Bio-data
 2. Project Showcase
 3. Blog Post
+
+
+## Latest Bugs
+
+
+## Improvements
+
+
+## Author: Parbat Lama
