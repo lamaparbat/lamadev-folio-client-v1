@@ -18,6 +18,7 @@
 
 
 ## Improvements
-
+1.Admin Panel
+2. Blog post creater form
 
 ## Author: Parbat Lama
